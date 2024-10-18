@@ -1,0 +1,20 @@
+[package]
+name = "cargo-profclean"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+license-file = "LICENSE"
+description = "A simple tools to clean profdata from your cargo registry folder"
+readme = "README.md"
+
+[dependencies]
+clap = { version = "4.5.17", features = ["derive"] }
+color-print = "0.3.6"
+directories = "5.0.1"
+
+[profile.release]
+lto = true
+opt-level = "z"
+codegen-units = 1
+incremental = false
+strip = true
